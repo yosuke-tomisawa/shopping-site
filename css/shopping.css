@@ -7,8 +7,10 @@ html {
 
 body {
   font-family: Avenir, AvenirNext,'Helvetica neue', Helvetica,'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro',メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
-  background-color: #f9f8f6;
-  overflow-x: hidden; }
+  background-color: #f9f8f6; }
+
+#productContainer {
+  padding: 0px; }
 
 .upperCase {
   text-transform: uppercase; }
@@ -62,8 +64,12 @@ header {
     margin-bottom: 13px;
     text-align: center; }
   header ul.spMenu {
-    margin: 0; }
+    margin: 0;
+    text-align: center; }
     @media screen and (min-width: 550px) {
+      header ul.spMenu {
+        text-align: right; } }
+    @media screen and (min-width: 700px) {
       header ul.spMenu {
         display: none; } }
     header ul.spMenu li {
@@ -76,7 +82,7 @@ header {
     right: 0;
     bottom: 0;
     display: none; }
-    @media screen and (min-width: 550px) {
+    @media screen and (min-width: 700px) {
       header ul.pcMenu {
         display: block; } }
     header ul.pcMenu li {
@@ -105,6 +111,12 @@ header {
   left: 0;
   z-index: 200;
   display: none; }
+  @media screen and (min-width: 550px) {
+    .spMenu_toggle {
+      position: absolute;
+      top: 42px;
+      left: 0;
+      z-index: 200; } }
   .spMenu_toggle ul {
     margin-bottom: 0;
     padding: 0; }
@@ -179,6 +191,9 @@ header {
   opacity: 0.6; }
 
 /**************************************/
+#shoppingGuide.product_shoppingGuide {
+  margin: 0 20px; }
+
 #guideBox {
   display: flex;
   justify-content: space-between;
@@ -235,90 +250,97 @@ header {
         margin-bottom: 2px; }
 
 /**************************************/
-#sidebar {
-  width: 100%; }
-  #sidebar #itemSearch {
-    background-color: #fff;
-    margin-bottom: 10px;
-    padding: 10px 15px; }
-    #sidebar #itemSearch h2 {
-      display: none; }
-      @media screen and (min-width: 550px) {
-        #sidebar #itemSearch h2 {
-          display: block;
-          text-align: left;
-          margin-bottom: 10px; } }
-    #sidebar #itemSearch form#search {
-      margin: 0; }
-      #sidebar #itemSearch form#search input {
-        width: 100%;
-        height: 40px;
-        margin-bottom: 5px;
-        padding: 6px 10px;
-        background-color: #eee;
-        border-radius: 0;
-        border: none;
-        font-size: 16px;
-        font-size: 1.6rem;
-        font-style: italic; }
-        #sidebar #itemSearch form#search input::placeholder {
-          color: #c7c7c7;
-          background-image: url("../images/top/search_icon.png");
-          background-repeat: no-repeat;
-          background-position: right center; }
-        #sidebar #itemSearch form#search input:focus {
-          border: 1px solid #887f69; }
-    #sidebar #itemSearch .searchBox {
+@media screen and (max-width: 549px) {
+  #sidebar.productSidebar {
+    padding: 0 20px; } }
+
+@media screen and (min-width: 550px) {
+  #sidebar {
+    width: 100%; } }
+#sidebar #itemSearch {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px 15px; }
+  #sidebar #itemSearch h2 {
+    display: none; }
+    @media screen and (min-width: 550px) {
+      #sidebar #itemSearch h2 {
+        display: block;
+        text-align: left;
+        margin-bottom: 10px; } }
+  #sidebar #itemSearch form#search {
+    margin: 0; }
+    #sidebar #itemSearch form#search input {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 5px;
+      padding: 6px 10px;
       background-color: #eee;
-      padding: 5px;
-      position: relative; }
-      #sidebar #itemSearch .searchBox p {
-        display: inline-block;
-        margin: 0 0 0 5px; }
-      #sidebar #itemSearch .searchBox p img {
-        position: absolute;
-        top: 10px;
-        right: 10px; }
-  #sidebar #pageLink .sidebarBox, #sidebar #categories .sidebarBox, #sidebar #about .sidebarBox, #sidebar #shopInfo .sidebarBox {
-    margin-bottom: 10px;
+      border-radius: 0;
+      border: none; }
+      #sidebar #itemSearch form#search input::placeholder {
+        color: #c7c7c7;
+        font-size: 12px;
+        font-size: 1.2rem;
+        font-style: italic;
+        line-height: 20px;
+        background-image: url("../images/top/search_icon.png");
+        background-repeat: no-repeat;
+        background-position: right center; }
+      #sidebar #itemSearch form#search input:focus {
+        border: 1px solid #887f69; }
+  #sidebar #itemSearch .searchBox {
+    background-color: #eee;
+    padding: 5px;
     position: relative; }
-    #sidebar #pageLink .sidebarBox h2, #sidebar #categories .sidebarBox h2, #sidebar #about .sidebarBox h2, #sidebar #shopInfo .sidebarBox h2 {
-      background-color: #887f69;
-      color: #fff;
-      text-align: left;
-      padding: 12px;
-      margin-bottom: 0; }
-    #sidebar #pageLink .sidebarBox p, #sidebar #categories .sidebarBox p, #sidebar #about .sidebarBox p, #sidebar #shopInfo .sidebarBox p {
-      margin: 0; }
-      #sidebar #pageLink .sidebarBox p img, #sidebar #categories .sidebarBox p img, #sidebar #about .sidebarBox p img, #sidebar #shopInfo .sidebarBox p img {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 100; }
-  #sidebar #categories .sidebarBox {
+    #sidebar #itemSearch .searchBox p {
+      display: inline-block;
+      margin: 0 0 0 5px; }
+    #sidebar #itemSearch .searchBox p img {
+      position: absolute;
+      top: 10px;
+      right: 10px; }
+#sidebar #pageLink .sidebarBox, #sidebar #categories .sidebarBox, #sidebar #about .sidebarBox, #sidebar #shopInfo .sidebarBox {
+  margin-bottom: 10px;
+  position: relative;
+  overflow-y: hidden; }
+  #sidebar #pageLink .sidebarBox h2, #sidebar #categories .sidebarBox h2, #sidebar #about .sidebarBox h2, #sidebar #shopInfo .sidebarBox h2 {
+    background-color: #887f69;
+    color: #fff;
+    text-align: left;
+    padding: 12px;
     margin-bottom: 0; }
-  #sidebar .categorieBoxes {
-    background-color: #fff;
-    position: relative;
-    margin-bottom: 1px; }
-    #sidebar .categorieBoxes h3 {
-      font-size: 14px;
-      font-size: 1.4rem;
-      padding: 13px;
-      margin: 0; }
-    #sidebar .categorieBoxes p {
-      margin: 0; }
-      #sidebar .categorieBoxes p img {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 100; }
-  @media screen and (min-width: 550px) {
-    #sidebar #pageLink .sidebarBox h2:hover, #sidebar #categories .sidebarBox h2:hover {
-      background-color: #a09884; } }
-  @media screen and (min-width: 550px) {
-    #sidebar .categorieBoxes h3:hover {
-      background-color: #f2f2f2; } }
+  #sidebar #pageLink .sidebarBox p, #sidebar #categories .sidebarBox p, #sidebar #about .sidebarBox p, #sidebar #shopInfo .sidebarBox p {
+    margin: 0; }
+    #sidebar #pageLink .sidebarBox p img, #sidebar #categories .sidebarBox p img, #sidebar #about .sidebarBox p img, #sidebar #shopInfo .sidebarBox p img {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100; }
+#sidebar #categories .sidebarBox {
+  margin-bottom: 0; }
+#sidebar .categorieBoxes {
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 1px; }
+  #sidebar .categorieBoxes h3 {
+    font-size: 14px;
+    font-size: 1.4rem;
+    padding: 13px;
+    margin: 0; }
+  #sidebar .categorieBoxes p {
+    margin: 0; }
+    #sidebar .categorieBoxes p img {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100; }
+@media screen and (min-width: 550px) {
+  #sidebar #pageLink .sidebarBox h2:hover, #sidebar #categories .sidebarBox h2:hover {
+    background-color: #a09884; } }
+@media screen and (min-width: 550px) {
+  #sidebar .categorieBoxes h3:hover {
+    background-color: #f2f2f2; } }
 
 /**************************************/
 #pageLink h2::after {
@@ -433,6 +455,10 @@ footer .container {
     font-size: 1.4rem; }
 
 /**************************************/
+@media screen and (max-width: 549px) {
+  #breadCrumbs_list.proBread_list {
+    margin: 0 20px; } }
+
 #breadCrumbs_list {
   background-color: #e2ddd4;
   border-radius: 3px; }
@@ -479,12 +505,14 @@ footer .container {
   padding: 20px 60px; }
   @media screen and (max-width: 549px) {
     #product {
-      margin: 15px -200%;
-      padding: 20px 200%; } }
+      padding: 20px 20px; } }
   #product .productNavi {
     margin-bottom: 15px; }
     #product .productNavi dl {
       border-bottom: solid 1px #e3e8cf; }
+      @media screen and (min-width: 550px) {
+        #product .productNavi dl dt {
+          float: left; } }
       #product .productNavi dl dt h2 {
         color: black;
         font-weight: bold;
@@ -694,7 +722,9 @@ footer .container {
       text-align: left;
       padding: 10px 5px; }
 
-#recentItem h2 {
-  margin-bottom: 15px; }
+#recentItem {
+  padding: 0px 20px; }
+  #recentItem h2 {
+    margin-bottom: 15px; }
 
 /*# sourceMappingURL=shopping.css.map */

@@ -26,7 +26,11 @@ html{
 body{
     font-family:Avenir, AvenirNext,'Helvetica neue', Helvetica,'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro',メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
     background-color: #f9f8f6;
-    overflow-x: hidden;
+    // overflow-x: hidden;
+}
+
+#productContainer{
+    padding: 0px;
 }
 
 .upperCase{
@@ -89,7 +93,7 @@ img.sp_image{
 // header
 header{
     padding-top: 15px;
-    margin-bottom:13px;
+    margin-bottom: 13px;
     
     h1{
         @include fontsize(10);
@@ -98,10 +102,13 @@ header{
     }
     
     ul.spMenu{
-        
         margin: 0;
+        text-align: center;
+        @media screen and(min-width: 550px){
+            text-align: right;
+        }
         
-       @media screen and(min-width: 550px){
+       @media screen and(min-width: 700px){
            
             display: none;
        }
@@ -121,7 +128,7 @@ header{
         bottom: 0;
         display: none;
         
-        @media screen and(min-width: 550px){
+        @media screen and(min-width: 700px){
             display: block;
         }
         
@@ -162,6 +169,13 @@ header{
     left: 0;
     z-index: 200;
     display: none;
+    
+    @media screen and(min-width: 550px){
+            position: absolute;
+            top: 42px;
+            left: 0;
+            z-index: 200;
+        }
         
         ul{
             margin-bottom: 0;
@@ -297,6 +311,11 @@ header{
 /**************************************/
 // shoppingGuide
 
+#shoppingGuide.product_shoppingGuide{
+    margin: 0 20px;
+}
+
+
 #guideBox{
     display: flex;
     justify-content: space-between;
@@ -377,8 +396,16 @@ header{
 
 // #sidebar
 
+#sidebar.productSidebar{
+    @media screen and(max-width: 549px){
+    padding: 0 20px;
+    }
+}
+
 #sidebar{
+    @media screen and(min-width: 550px){
     width: 100%;
+    }
     
     #itemSearch{
         background-color: #fff;
@@ -406,11 +433,13 @@ header{
                 background-color: #eee;
                 border-radius: 0;
                 border: none;
-                @include fontsize(16);
-                font-style: italic;
+                
                 
                 &::placeholder{
                     color: #c7c7c7;
+                    @include fontsize(12);
+                    font-style: italic;
+                    line-height: 20px;
                     background-image: url('../images/top/search_icon.png');
                     background-repeat: no-repeat;
                     background-position: right center;
@@ -450,6 +479,7 @@ header{
         .sidebarBox{
             margin-bottom: 10px;
             position: relative;
+            overflow-y: hidden;
             
             h2{
                 background-color: $olive;
@@ -711,8 +741,12 @@ footer{
 }
 
 /**************************************/
-
 // breadCrumbs_list
+#breadCrumbs_list.proBread_list{
+    @media screen and(max-width: 549px){
+        margin: 0 20px;
+    }
+}
 
 #breadCrumbs_list{
     background-color: $ivory;
@@ -787,8 +821,7 @@ footer{
     margin-bottom: 15px;
     padding: 20px 60px;
     @media screen and(max-width: 549px){
-        margin: 15px -200%;
-        padding: 20px 200%;
+        padding: 20px 20px;
     }
     
     .productNavi{
@@ -796,6 +829,9 @@ footer{
         dl{
             border-bottom: solid 1px #e3e8cf;
             dt{
+                @media screen and(min-width: 550px){
+                    float: left;
+                }
                 h2{
                     color: black;
                     font-weight: bold;
@@ -813,6 +849,7 @@ footer{
                 @media screen and(min-width: 550px){
                     text-align: right;
                 }
+                
             }
         }
     }
@@ -1105,6 +1142,7 @@ footer{
 }
 
 #recentItem{
+    padding: 0px 20px;
     h2{
         margin-bottom: 15px;
     }
